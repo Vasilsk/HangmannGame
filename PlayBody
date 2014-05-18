@@ -1,0 +1,47 @@
+import org.apache.commons.lang3.StringUtils;
+
+
+public class PlayBody {
+		
+		String[] gallet = drawGallet();
+	
+	
+	public void Start(int difficulty){
+		
+		switch (difficulty) {
+		case 1:
+			System.out.println(gallet[0]);
+			break;
+			
+		case 2:
+			System.out.println(gallet[3]);
+			break;
+			
+		case 3:
+			System.out.println(gallet[5]);
+			break;
+
+		default:
+			break;
+		}
+		
+	}
+	
+	private static String[] drawGallet() {
+		String gallet[] = new String[11];
+		String dashes = StringUtils.repeat("-", 6); // osnovata na besiloto
+		
+		gallet[0] = "";
+		gallet[1] = StringUtils.repeat("\n", 6) + dashes;
+		gallet[2] = StringUtils.repeat(" |\n", 6) + dashes;
+		gallet[3] = " |---\n" + StringUtils.repeat(" |\n", 5) + dashes;
+		gallet[4] = " |---\n |  |\n" + StringUtils.repeat(" |\n", 4) + dashes;
+		gallet[5] = " |---\n |  |\n |  o\n" + StringUtils.repeat(" |\n", 3) + dashes;
+		gallet[6] = " |---\n |  |\n |  o\n |  |\n" + StringUtils.repeat(" |\n", 2) + dashes;
+		gallet[7] = " |---\n |  |\n |  o\n | /|\n" + StringUtils.repeat(" |\n", 2) + dashes;
+		gallet[8] = " |---\n |  |\n |  o\n | /|\\\n" + StringUtils.repeat(" |\n", 2) + dashes;
+		gallet[9] = " |---\n |  |\n |  o\n | /|\\\n | /\n" + StringUtils.repeat(" |\n", 1) + dashes;
+		gallet[10] = " |---\n |  |\n |  o\n | /|\\\n | / \\\n" + StringUtils.repeat(" |\n", 1) + dashes;
+		return gallet;
+	}	
+}
