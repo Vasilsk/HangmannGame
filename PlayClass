@@ -1,0 +1,64 @@
+import java.util.Scanner;
+import org.apache.commons.lang3.StringUtils;
+
+public class PlayBody {		
+		String[] gallows = drawGallows();	
+	
+	public void Start(int difficulty){
+		
+		String word = "Germany";
+		String hint = "Europe";
+		String guess = "";
+		int timesTried = 0;
+		
+		/*
+		 * Depending on the difficulty, chosen by the user, there will be a different
+		 * scenario. TimesTried will not always be the same and the first screen with
+		 * the gallows will also be different in the three cases.
+		 */
+				                
+		if (difficulty == 1) {
+			timesTried = 0;
+			System.out.println(gallows[0]);
+		}else if (difficulty == 2) {
+			timesTried = 3;
+			System.out.println(gallows[3]);
+		}else if (difficulty == 3){
+			timesTried = 5;
+			System.out.println(gallows[5]);
+		}       
+        for (int i = 0; i < word.length(); i++) {
+			guess += "-";
+		}
+        char guessToChArr[] = guess.toCharArray();
+        char wordToChArr[] = word.toCharArray();
+        
+        for(int j = 0; j < guessToChArr.length; j++)
+        {
+          System.out.print(guessToChArr[j]);
+        }
+        System.out.println();		
+        
+        // Vikane na metoda Guess
+	}
+		
+	
+	
+	private static String[] drawGallows() {
+		String gallows[] = new String[11];
+		String dashes = StringUtils.repeat("-", 6); // The base of the gallows.
+		
+		gallows[0] = "";
+		gallows[1] = StringUtils.repeat("\n", 6) + dashes;
+		gallows[2] = StringUtils.repeat(" |\n", 6) + dashes;
+		gallows[3] = " |---\n" + StringUtils.repeat(" |\n", 5) + dashes;
+		gallows[4] = " |---\n |  |\n" + StringUtils.repeat(" |\n", 4) + dashes;
+		gallows[5] = " |---\n |  |\n |  o\n" + StringUtils.repeat(" |\n", 3) + dashes;
+		gallows[6] = " |---\n |  |\n |  o\n |  |\n" + StringUtils.repeat(" |\n", 2) + dashes;
+		gallows[7] = " |---\n |  |\n |  o\n | /|\n" + StringUtils.repeat(" |\n", 2) + dashes;
+		gallows[8] = " |---\n |  |\n |  o\n | /|\\\n" + StringUtils.repeat(" |\n", 2) + dashes;
+		gallows[9] = " |---\n |  |\n |  o\n | /|\\\n | /\n" + StringUtils.repeat(" |\n", 1) + dashes;
+		gallows[10] = " |---\n |  |\n |  o\n | /|\\\n | / \\\n" + StringUtils.repeat(" |\n", 1) + dashes;
+		return gallows;
+	}	
+}
